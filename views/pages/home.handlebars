@@ -1,389 +1,76 @@
 <div id="div_search_bar">
-    <form class="form-inline my-2 my-lg-0">
-        <input id="search_bar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button id="search_submit" class="btn my-2 my-sm-0" type="submit">Search</button>
-    </form>
+  <form
+    class="form-inline my-2 my-lg-0"
+    id="searchForm"
+    action="/search"
+    method="POST"
+  >
+    <input
+      id="search_bar"
+      class="form-control mr-sm-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      name="searchTerm"
+    />
+    <button
+      id="search_submit"
+      class="btn my-2 my-sm-0"
+      type="submit"
+    >Search</button>
+  </form>
 </div>
 
 <!-- Example single danger button -->
-<div class="div_dropdown">
-    <div class="dropdown show btn-group" id="ddl_plants">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Select Product Type
-        </a>
 
-        <div class="dropdown-menu" id="displayProp" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <h1 class="dropdown-item">Action</h1>
-        </div>
+<div class="div_dropdown">
+  <div class="dropdown show btn-group" id="ddl_plants">
+    <a
+      class="btn btn-secondary dropdown-toggle"
+      href="#"
+      role="button"
+      id="dropdownMenuLink"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      Select Product Type
+    </a>
+
+    <div
+      class="dropdown-menu"
+      id="displayProp"
+      aria-labelledby="dropdownMenuLink"
+    >
     </div>
+  </div>
 
 </div>
 
+<div id="filterDiv">
+
+</div>
+
+<div class="container" id="#productDiv">
+  <div class="row" id="productList">
+    {{#each productList}}
+      <div class="col bg-success">
+        <a
+          href="/products/product/{{this._id}}"
+          class="product_click"
+          data-id="{{this._id}}"
+        >
+          {{this.title}}
+          <p><img
+              src="{{this.productImage}}"
+              href=""
+              height="100"
+              width="100"
+            /></p>
+          <p>Price:{{this.price}}</p>
+        </a>
+      </div>
+    {{/each}}
+  </div>
 
-<div class="container">
-    <!-- Content here -->
-    <ul class="home-section" tabindex="0">
-        <div class="" style="">
-            <div class="">
-                <div class="" style="left: 0px; transform: translateX(0%);">
-                    <li class="item" style="position: absolute; left: 0%;">
-                        <div class="productitem" data-product-item-content="">
-                            <a class="productitem--image-link" href="/products/top-4-die-hard-succulents-pack"
-                                tabindex="-1" data-product-page-link="">
-                                <figure class="productitem--image" data-product-item-image="">
-                                    <noscript data-rimg-noscript="">
-                                        <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-top-4-die-hard-succulents-pack_4368a560-5bb3-426a-bcfc-a30560e365b1_512x512.jpg?v=1612688579"
-                                            alt="" data-rimg="noscript"
-                                            srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-top-4-die-hard-succulents-pack_4368a560-5bb3-426a-bcfc-a30560e365b1_512x512.jpg?v=1612688579 1x, //cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-top-4-die-hard-succulents-pack_4368a560-5bb3-426a-bcfc-a30560e365b1_599x599.jpg?v=1612688579 1.17x"
-                                            class="productitem--image-primary">
-                                    </noscript>
-                                    <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-top-4-die-hard-succulents-pack_4368a560-5bb3-426a-bcfc-a30560e365b1_512x512.jpg?v=1612688579"
-                                        alt="" data-rimg="loaded" data-rimg-scale="1"
-                                        data-rimg-template="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-top-4-die-hard-succulents-pack_4368a560-5bb3-426a-bcfc-a30560e365b1_{size}.jpg?v=1612688579"
-                                        data-rimg-max="600x600" data-rimg-crop=""
-                                        srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-top-4-die-hard-succulents-pack_4368a560-5bb3-426a-bcfc-a30560e365b1_186x186.jpg?v=1612688579 1.00x"
-                                        class="productitem--image-primary"
-                                        data-rimg-template-svg="data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='512'%20height='512'></svg>">
-
-                                </figure>
-                            </a>
-                            <div class="productitem--info">
-                                <div class="productitem--price ">
-                                    <div class="price--compare-at visible" data-price-compare-at="">
-                                        <span class="visually-hidden">Original price</span>
-                                        <span class="money">
-                                            ₹ 1,768
-                                        </span>
-
-                                    </div>
-
-                                    <div class="price--main" data-price="">
-                                        <span class="visually-hidden">Current price</span>
-                                        <span class="money">
-                                            ₹ 699
-                                        </span>
-                                    </div>
-
-                                </div>
-
-                                <div class="productitem--ratings">
-                                    <span class="spr-badge" id="spr_badge_5144572362892"
-                                        data-rating="3.8823529411764706"><span
-                                            class="spr-starrating spr-badge-starrating"><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star-empty"></i></span><span
-                                            class="spr-badge-caption">34 reviews</span>
-                                    </span>
-                                    <p>Likes
-                                        <a href="#"><i class="fa fa-heart" style="font-size:48px;color:red"></i></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </li>
-                    <li class="productgrid--item imagestyle--natural productitem--sale productitem--emphasis is-selected"
-                        data-product-item=""
-                        data-product-quickshop-url="/products/set-of-3-outdoor-flowering-plants-for-beautiful-garden"
-                        data-quickshop-hash="492c81e8cef6d864b733183c87eb46c5be842d532d11fa758d7951b7550b583e"
-                        style="position: absolute; left: 20.34%;">
-                        <div class="productitem" data-product-item-content="">
-
-                            <a class="productitem--image-link"
-                                href="/products/set-of-3-outdoor-flowering-plants-for-beautiful-garden" tabindex="-1"
-                                data-product-page-link="">
-                                <figure class="productitem--image" data-product-item-image="">
-
-                                    <noscript data-rimg-noscript="">
-                                        <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-set-of-3-outdoor-flowering-plants-for-beautiful-garden-16969318301836_512x512.jpg?v=1601351600"
-                                            alt="Set of 3 Outdoor Flowering Plants for Beautiful Garden - Nurserylive"
-                                            data-rimg="noscript"
-                                            srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-set-of-3-outdoor-flowering-plants-for-beautiful-garden-16969318301836_512x512.jpg?v=1601351600 1x, //cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-set-of-3-outdoor-flowering-plants-for-beautiful-garden-16969318301836_599x599.jpg?v=1601351600 1.17x"
-                                            class="productitem--image-primary">
-                                    </noscript>
-
-
-                                    <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-set-of-3-outdoor-flowering-plants-for-beautiful-garden-16969318301836_512x512.jpg?v=1601351600"
-                                        alt="Set of 3 Outdoor Flowering Plants for Beautiful Garden - Nurserylive"
-                                        data-rimg="loaded" data-rimg-scale="1"
-                                        data-rimg-template="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-set-of-3-outdoor-flowering-plants-for-beautiful-garden-16969318301836_{size}.jpg?v=1601351600"
-                                        data-rimg-max="600x600" data-rimg-crop=""
-                                        srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-set-of-3-outdoor-flowering-plants-for-beautiful-garden-16969318301836_186x186.jpg?v=1601351600 1.00x"
-                                        class="productitem--image-primary"
-                                        data-rimg-template-svg="data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='512'%20height='512'></svg>">
-                                </figure>
-                            </a>
-                            <div class="productitem--info">
-
-
-
-
-                                <div class="productitem--price ">
-                                    <div class="price--compare-at visible" data-price-compare-at="">
-                                        <span class="visually-hidden">Original price</span>
-                                        <span class="money">
-                                            ₹ 1,340
-                                        </span>
-
-                                    </div>
-
-                                    <div class="price--main" data-price="">
-
-                                        <span class="visually-hidden">Current price</span>
-
-                                        <span class="money">
-                                            ₹ 749
-                                        </span>
-
-                                    </div>
-
-
-
-                                </div>
-
-                                <div class="productitem--ratings">
-                                    <span class="spr-badge" id="spr_badge_5144575082636"
-                                        data-rating="4.137931034482759"><span
-                                            class="spr-starrating spr-badge-starrating"><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star-half-alt"></i></span><span
-                                            class="spr-badge-caption">29 reviews</span>
-                                    </span>
-
-                                </div>
-
-
-
-
-
-                            </div>
-
-
-
-
-                        </div>
-                    </li>
-                    <li class="productgrid--item imagestyle--natural productitem--sale productitem--emphasis is-selected"
-                        data-product-item="" data-product-quickshop-url="/products/top-4-plants-for-healthy-homes"
-                        data-quickshop-hash="8a8cd569d113f9a0dc6f9bfb2ac5a6bb9efb385dd7ddaf628f3befb9264d887a"
-                        style="position: absolute; left: 40.68%;">
-                        <div class="productitem" data-product-item-content="">
-
-                            <a class="productitem--image-link" href="/products/top-4-plants-for-healthy-homes"
-                                tabindex="-1" data-product-page-link="">
-                                <figure class="productitem--image" data-product-item-image="">
-                                    <noscript data-rimg-noscript="">
-                                        <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/combo-packs-plants-top-4-plants-for-healthy-homes_512x512.jpg?v=1609262410"
-                                            alt="" data-rimg="noscript"
-                                            srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/combo-packs-plants-top-4-plants-for-healthy-homes_512x512.jpg?v=1609262410 1x, //cdn.shopify.com/s/files/1/0047/9730/0847/products/combo-packs-plants-top-4-plants-for-healthy-homes_599x599.jpg?v=1609262410 1.17x"
-                                            class="productitem--image-primary">
-                                    </noscript>
-                                    <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/combo-packs-plants-top-4-plants-for-healthy-homes_512x512.jpg?v=1609262410"
-                                        alt="" data-rimg="loaded" data-rimg-scale="1"
-                                        data-rimg-template="//cdn.shopify.com/s/files/1/0047/9730/0847/products/combo-packs-plants-top-4-plants-for-healthy-homes_{size}.jpg?v=1609262410"
-                                        data-rimg-max="600x600" data-rimg-crop=""
-                                        srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/combo-packs-plants-top-4-plants-for-healthy-homes_186x186.jpg?v=1609262410 1.00x"
-                                        class="productitem--image-primary"
-                                        data-rimg-template-svg="data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='512'%20height='512'></svg>">
-                                    <div data-rimg-canvas=""></div>
-
-                                </figure>
-                            </a>
-                            <div class="productitem--info">
-
-
-
-
-                                <div class="productitem--price ">
-                                    <div class="price--compare-at visible" data-price-compare-at="">
-                                        <span class="visually-hidden">Original price</span>
-                                        <span class="money">
-                                            ₹ 1,665
-                                        </span>
-
-                                    </div>
-
-                                    <div class="price--main" data-price="">
-
-                                        <span class="visually-hidden">Current price</span>
-
-                                        <span class="money">
-                                            ₹ 849
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="productitem--ratings">
-                                    <span class="spr-badge" id="spr_badge_5144575967372"
-                                        data-rating="4.111111111111111"><span
-                                            class="spr-starrating spr-badge-starrating"><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star-half-alt"></i></span><span
-                                            class="spr-badge-caption">27 reviews</span>
-                                    </span>
-
-                                </div>
-
-
-
-
-
-                            </div>
-
-
-
-
-                        </div>
-
-
-                    </li>
-                    <li class="productgrid--item imagestyle--natural productitem--sale productitem--emphasis is-selected"
-                        data-product-item=""
-                        data-product-quickshop-url="/products/best-4-plants-to-kill-indoor-pollution"
-                        data-quickshop-hash="610ee5fa83dfaa1a38774321dd5c3a6b425ac90c45ab7ef07325f8284f2d4085"
-                        style="position: absolute; left: 61.02%;">
-                        <div class="productitem" data-product-item-content="">
-
-                            <a class="productitem--image-link" href="/products/best-4-plants-to-kill-indoor-pollution"
-                                tabindex="-1" data-product-page-link="">
-                                <figure class="productitem--image" data-product-item-image="">
-                                    <noscript data-rimg-noscript="">
-                                        <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-best-4-plants-to-kill-indoor-pollution-16968631681164_512x512.jpg?v=1601347160"
-                                            alt="Best 4 plants to Kill Indoor Pollution - Nurserylive"
-                                            data-rimg="noscript"
-                                            srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-best-4-plants-to-kill-indoor-pollution-16968631681164_512x512.jpg?v=1601347160 1x, //cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-best-4-plants-to-kill-indoor-pollution-16968631681164_599x599.jpg?v=1601347160 1.17x"
-                                            class="productitem--image-primary">
-                                    </noscript>
-                                    <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-best-4-plants-to-kill-indoor-pollution-16968631681164_512x512.jpg?v=1601347160"
-                                        alt="Best 4 plants to Kill Indoor Pollution - Nurserylive" data-rimg="loaded"
-                                        data-rimg-scale="1"
-                                        data-rimg-template="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-best-4-plants-to-kill-indoor-pollution-16968631681164_{size}.jpg?v=1601347160"
-                                        data-rimg-max="600x600" data-rimg-crop=""
-                                        srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-best-4-plants-to-kill-indoor-pollution-16968631681164_186x186.jpg?v=1601347160 1.00x"
-                                        class="productitem--image-primary"
-                                        data-rimg-template-svg="data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='512'%20height='512'></svg>">
-
-                                </figure>
-                            </a>
-                            <div class="productitem--info">
-                                <div class="productitem--price ">
-                                    <div class="price--compare-at visible" data-price-compare-at="">
-                                        <span class="visually-hidden">Original price</span>
-                                        <span class="money">
-                                            ₹ 1,554
-                                        </span>
-
-                                    </div>
-
-                                    <div class="price--main" data-price="">
-
-                                        <span class="visually-hidden">Current price</span>
-
-                                        <span class="money">
-                                            ₹ 849
-                                        </span>
-
-                                    </div>
-
-                                </div>
-                                <div class="productitem--ratings">
-                                    <span class="spr-badge" id="spr_badge_5144575475852"
-                                        data-rating="3.9583333333333335"><span
-                                            class="spr-starrating spr-badge-starrating"><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star-empty"></i></span><span
-                                            class="spr-badge-caption">24 reviews</span>
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                    </li>
-                    <li class="productgrid--item imagestyle--natural productitem--sale productitem--emphasis is-selected"
-                        data-product-item=""
-                        data-product-quickshop-url="/products/top-4-plants-to-bring-goodluck-and-prosperity"
-                        data-quickshop-hash="b4c8c5f1c17ab6f6b2e0c7fbd232da7a55b14401ec8a3d248b4e8108002318d5"
-                        style="position: absolute; left: 81.36%;">
-                        <div class="productitem" data-product-item-content="">
-                            <a class="productitem--image-link"
-                                href="/products/top-4-plants-to-bring-goodluck-and-prosperity" tabindex="-1"
-                                data-product-page-link="">
-                                <figure class="productitem--image" data-product-item-image="">
-                                    <noscript data-rimg-noscript="">
-                                        <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-top-4-plants-to-bring-goodluck-and-prosperity-16969387442316_512x512.jpg?v=1601351482"
-                                            alt="Top 4 Plants to Bring Goodluck and Prosperity - Nurserylive"
-                                            data-rimg="noscript"
-                                            srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-top-4-plants-to-bring-goodluck-and-prosperity-16969387442316_512x512.jpg?v=1601351482 1x, //cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-top-4-plants-to-bring-goodluck-and-prosperity-16969387442316_599x599.jpg?v=1601351482 1.17x"
-                                            class="productitem--image-primary">
-                                    </noscript>
-                                    <img src="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-top-4-plants-to-bring-goodluck-and-prosperity-16969387442316_512x512.jpg?v=1601351482"
-                                        alt="Top 4 Plants to Bring Goodluck and Prosperity - Nurserylive"
-                                        data-rimg="loaded" data-rimg-scale="1"
-                                        data-rimg-template="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-top-4-plants-to-bring-goodluck-and-prosperity-16969387442316_{size}.jpg?v=1601351482"
-                                        data-rimg-max="600x600" data-rimg-crop=""
-                                        srcset="//cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-top-4-plants-to-bring-goodluck-and-prosperity-16969387442316_186x186.jpg?v=1601351482 1.00x"
-                                        class="productitem--image-primary"
-                                        data-rimg-template-svg="data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='512'%20height='512'></svg>">
-                                    <div data-rimg-canvas=""></div>
-                                </figure>
-                            </a>
-                            <div class="productitem--info">
-                                <div class="productitem--price ">
-                                    <div class="price--compare-at visible" data-price-compare-at="">
-                                        <span class="visually-hidden">Original price</span>
-                                        <span class="money">
-                                            ₹ 1,511
-                                        </span>
-
-                                    </div>
-
-                                    <div class="price--main" data-price="">
-                                        <span class="visually-hidden">Current price</span>
-                                        <span class="money">
-                                            ₹ 949
-                                        </span>
-                                    </div>
-
-                                </div>
-                                <div class="productitem--ratings">
-                                    <span class="spr-badge" id="spr_badge_5144561320076" data-rating="4.2"><span
-                                            class="spr-starrating spr-badge-starrating"><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star"></i><i
-                                                class="spr-icon spr-icon-star-half-alt"></i></span><span
-                                            class="spr-badge-caption">30 reviews</span>
-                                    </span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </div>
-            </div>
-        </div>
-
-    </ul>
 </div>

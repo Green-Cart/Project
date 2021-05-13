@@ -1,4 +1,4 @@
-<div class="container my-5 py-5 z-depth-1 card">
+<div class="container single_prod_container">
 
 
     <!--Section: Content-->
@@ -10,12 +10,28 @@
             <!--Grid column-->
             <div class="col-md-6 mb-4 mb-md-0">
 
-                <h3 class="font-weight-bold">{{product.title}}</h3>
+                <h1 class="font-weight-bold">{{product.title}}</h1>
 
                 <p class="text-muted">{{product.description}}</p>
-
-                <a class="btn btn-primary btn-md ml-0" href="#" role="button"> Buy Now <i
-                        class="fa fa-gem ml-2"></i></a>
+                <p class="text-muted">Price: {{product.price}}</p>
+                {{!-- <form id ="reviewForm" method="post" action="">
+                    <label>
+                        Enter Your Review
+                    </label>
+                    <input type="text" name="review"/>
+                    <!-- <input id="search_btn" type="submit" name="submit" /> -->
+                    <button id="add_review" type="submit" data-id="{{product._id}}">Submit</button>
+                </form> --}}
+               
+                <a class="btn btn-primary add_review" href="" role="button" data-id="{{product._id}}"> Add review<i
+                class=""></i></a>
+                
+                <p>
+                    <a class ="product_like" href="">{{product.noOfLikes}} Likes: <i class="fa fa-thumbs-up"></i></a>
+                </p>
+                
+                <a class="btn btn-primary buy_now" href="" role="button" data-id="{{product._id}}"> Buy Now <i
+                class=""></i></a>
 
             </div>
             <!--Grid column-->
@@ -25,7 +41,7 @@
 
                 <!--Image-->
                 <div class="view overlay z-depth-1-half">
-                    <img src="{{product.productImage}}" class="img-fluid" alt="">
+                    <img src="{{product.productImage}}" class="" alt="" height="250px">
                     <a href="#">
                         <div class="mask rgba-white-light"></div>
                     </a>

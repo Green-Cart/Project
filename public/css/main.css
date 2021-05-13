@@ -213,3 +213,18 @@ ul {
 .rightContainer {
   float: right;
 }
+
+.single_prod_container{
+  background-color: #dffbaa94;
+  height: auto;
+  padding-top: 2%;
+  margin-top: 2%;
+}
+
+#review_form{
+  margin-left: 3%;
+}
+.home_link:hover{
+  background-color: #edfcce;
+  color:#fff;
+}

@@ -1,11 +1,11 @@
 const errorHandler = require("./DatabaseErrorHandling");
 
-const facet = [
-  { property: "product_type", value: "plant" },
-  { property: "color", value: "green" },
-];
+// const facet = [
+//   { property: "product_type", value: "plant" },
+//   { property: "color", value: "green" },
+// ];
 
-errorHandler.checkFacet(facet);
+// errorHandler.checkFacet(facet);
 
 const properies = {
   product_type: "plant",
@@ -13,24 +13,24 @@ const properies = {
 };
 errorHandler.checkFilterProperties(properies);
 
-const propertiesType = [
-  { name: "product_type", type: "string" },
-  { name: "color", type: "number" },
-];
+// const propertiesType = [
+//   { name: "product_type", type: "string" },
+//   { name: "color", type: "number" },
+// ];
 
-errorHandler.checkPropertiesOfProduct(propertiesType);
+// errorHandler.checkPropertiesOfProduct(propertiesType);
 
-const address = {
-  Line1: "332 Webster Ave",
-  Line2: "Apt #2L",
-  City: "8",
-  State: "New Jersey",
-  Country: "USA",
-  ZipCode: 79980,
-};
+// const address = {
+//   Line1: "332 Webster Ave",
+//   Line2: "Apt #2L",
+//   City: "8",
+//   State: "New Jersey",
+//   Country: "USA",
+//   ZipCode: 79980,
+// };
 
-errorHandler.checkAddress(address);
+// errorHandler.checkAddress(address);
 
-const property = { name: "weight in lbs", type: "number" };
+// const property = { name: "weight in lbs", type: "number" };
 
-errorHandler.checkFilterProperties(property);
+// errorHandler.checkFilterProperties(property);

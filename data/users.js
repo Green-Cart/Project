@@ -60,7 +60,7 @@ module.exports = {
       password: hasedPassword,
       userCreatedAt: new Date(),
       mobile: phoneNumber,
-      emailId: emailId,
+      emailId: emailId.toLowerCase(),
       address: address,
       viewHistory: [],
       LikeHistory: [],

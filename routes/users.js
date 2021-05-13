@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 usersData = data.users;
 const xss = require("xss");
 errorCheck = require("../errorCheck");
+dataError = require("../Error/DatabaseErrorHandling");
 
 router.get("/form", async (req, res) => {
   console.log("out of /form");
@@ -22,9 +23,15 @@ router.get("/form", async (req, res) => {
 });
 
 router.get("/logout", async (req, res) => {
-  req.session.destroy();
-  req.session.user = null;
-  return res.redirect("/products");
+  try {
+    console.log(req.session);
+
+    req.session.destroy();
+    console.log(req.session);
+    return res.redirect("/");
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 router.get("/", async (req, res) => {
@@ -75,6 +82,7 @@ router.get("/details", async (req, res) => {
   }
 });
 
+
 router.get("/user/:id", async (req, res) => {
   try {
     const userInfo = await usersData.getUser(req.params.id);
@@ -111,7 +119,7 @@ router.post("/login", async (req, res) => {
   if (req.session.user) {
     return res.render("pages/userDetail", { title: "Already In" });
   } else {
-    const email = xss(req.body.email.trim());
+    let email = xss(req.body.email.trim());
     const password = xss(req.body.password.trim());
     let userClient;
     console.log("\n\n Email: ", email, "\n\n");
@@ -121,6 +129,7 @@ router.post("/login", async (req, res) => {
       errors.push("Invalid user E-mail address.");
     if (errorCheck.stringCheck(password) == false)
       errors.push("Invalid password.");
+    email = email.toLowerCase();
 
     const users = await usersData.getAllUsers();
     for (let i = 0; i < users.length; i++) {
@@ -144,6 +153,7 @@ router.post("/login", async (req, res) => {
     console.log("Error: ", errors);
     if (match) {
       req.session.user = userClient;
+      console.log(req.session.user);
       // let comp = req.session.previousRoute;
       // if (comp) {
       req.session.previousRoute = "";
@@ -164,9 +174,9 @@ router.post("/login", async (req, res) => {
 
 router.get("/signup", async (req, res) => {
   if (req.session.user) {
-    return res.redirect("/products");
+    return res.redirect("/");
   }
-  return res.render("pages/signup-page");
+  return res.render("pages/signUp");
 });
 
 router.post("/signup", async (req, res) => {
@@ -175,7 +185,11 @@ router.post("/signup", async (req, res) => {
   const email = xss(req.body.emailId);
   const password = xss(req.body.password);
   const phoneNumber = xss(req.body.phoneNumber);
-  const address = xss(req.body.address);
+  const Line1 = xss(req.body.Line1);
+  const Line2 = xss(req.body.Line2);
+  const City = xss(req.body.City);
+  const State = xss(req.body.State);
+  const ZipCode = xss(req.body.ZipCode);
 
   errors = [];
   if (!errorCheck.stringCheck(firstName))
@@ -193,32 +207,79 @@ router.post("/signup", async (req, res) => {
   if (!errorCheck.phoneNumberValid(phoneNumber))
     // errors.push
     throw "Invalid PhoneNumber (routes/users)";
+  if (!errorCheck.stringCheck(Line1)) throw "Invalid LineOne (routes/users )";
 
+  if (!errorCheck.stringCheck(Line2)) throw "Invalid LineTwo (routes/users )";
+  if (!errorCheck.stringCheck(City)) throw "Invalid City (routes/users )";
+
+  if (!errorCheck.stringCheck(State)) throw "Invalid State (routes/users )";
+  if (!errorCheck.zipcCodeValid(ZipCode))
+    throw "Invalid Zip Code (routes/users )";
+  address = {
+    Line1: Line1,
+    Line2: Line2,
+    City: City,
+    State: State,
+    ZipCode: parseInt(ZipCode),
+    Country: "USA",
+  };
+
+  dataError.checkAddress(address);
   // Just for woking part I'm throwing JSON error
   if (errors.length > 0) {
     return res.json({ errors: "Erros while adding" });
   }
   try {
-    const newUser = await usersData.addUser(
-      firstName,
-      lastName,
-      phoneNumber,
-      email,
-      password,
-      address
-    );
-    // console.log(newUser);
-    // req.seesion.user = newUser;
-    //Just for now redirecting to the root route
-    // res.redirect("/");
-
-    return res.render("pages/signup", {
-      firstName: newUser.firstName,
-      title: "Testing",
+    const allUsers = await usersData.getAllUsers();
+    let emailUsed;
+    allUsers.find((user) => {
+      if (user.emailId === email.toLowerCase()) {
+        emailUsed = true;
+        console.log("adsas");
+        return emailUsed;
+      } else {
+        console.log("nnnn");
+        emailUsed = false;
+        return emailUsed;
+      }
     });
+
+    console.log(emailUsed);
+    if (emailUsed == false) {
+      const newUser = await usersData.addUser(
+        firstName,
+        lastName,
+        phoneNumber,
+        email.toLowerCase(),
+        password,
+        address
+      );
+      console.log(newUser);
+      // req.seesion.user = newUser;
+      //Just for now redirecting to the root route
+      // res.redirect("/");
+
+      return res.render("pages/loginPage", {
+        title: "signIn Done",
+      });
+    } else {
+      return res.render("pages/signUp", {
+        title: "error",
+        error: "Email is already used",
+      });
+    }
   } catch (error) {
     console.log(error);
     return res.json({ message: " error from addUser()" });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const userInfo = await usersData.getUser(req.params.id);
+    res.json(userInfo);
+  } catch (error) {
+    res.status().json({ message: "No Data (/:id)" });
   }
 });
 

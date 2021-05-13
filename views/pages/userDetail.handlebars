@@ -5,7 +5,7 @@
 
 <ul>
     {{#each purchase}}
-    <li><a data-href="/product/{{this._id}}">{{this.title}}</a></li>
+    <li><a href="/product/{{this._id}}">{{this.title}}</a></li>
     {{/each}}
 </ul>
 
@@ -15,7 +15,7 @@
 
 <ul>
     {{#each comments}}
-    <li><a data-href="/product/{{this.productId}}">{{this.commentText}}</a></li>
+    <li><a href="/product/{{this.productId}}">{{this.commentText}}</a></li>
     {{/each}}
 </ul>
 
@@ -26,7 +26,7 @@
 
 <ul>
     {{#each viewdProduct}}
-    <li><a data-href="/product/{{this._id}}">{{this.title}}</a></li>
+    <li><a href="/product/{{this._id}}">{{this.title}}</a></li>
 
     {{/each}}
 </ul>

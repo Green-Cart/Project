@@ -38,6 +38,7 @@ let exportedMethods = {
         createdAt,
         stock,
         facet,
+        price,
       } = product;
       _id = _id.toString();
       result.push({
@@ -49,6 +50,7 @@ let exportedMethods = {
         createdAt,
         stock,
         facet,
+        price,
       });
     }
     return result;
@@ -334,8 +336,8 @@ let exportedMethods = {
       })
       .toArray();
 
-    if (productsList.length == 0)
-      throw "Could not find products with the given search term";
+    // if (productsList.length == 0)
+    //   throw "Could not find products with the given search term";
     return productsList;
   },
 

@@ -14,7 +14,6 @@ $(document).ready(function () {
     let i = 1;
     const facetList = [];
     const body = objectifyForm($("#productForm").serializeArray());
-
     facetList.push({ property: "product_type", value: body["product_type"] });
     while (i <= count) {
       facetList.push({
@@ -51,7 +50,7 @@ $(document).ready(function () {
     });
   });
 
-  $("#add_property").click(function () {
+    $("#add_property").click(function () {
     count = count + 1;
     const divTag = $("#properties");
     const add = `\
@@ -63,19 +62,66 @@ $(document).ready(function () {
     divTag.append(add);
   });
 
-  $(".delete_product").on("click", function (e) {
-    var id = $(this).attr("data-id");
-    alert(id);
-    $.ajax({
-      url: "/product/" + id, // url where to submit the request
-      type: "delete", // type of action POST || GET
-      dataType: "json", // data type
-      // data : id, // post data || get data
-      success: function (data) {
-        //    alert("deleted");
-        location.reload();
-      },
-      error: function () {},
+    $('.delete_product').on('click', function(e) {
+        var id = $(this).attr('data-id');
+        $.ajax({
+            url: '/product/'+ id, // url where to submit the request
+            type : "delete", // type of action POST || GET
+            dataType : 'json', // data type
+            // data : id, // post data || get data
+            success : function(data) {
+            //    alert("deleted");
+                location.reload();
+            },
+            error: function() {
+                
+            }
+        })
+    });
+
+    $('.product_click').on('click', function(e) {
+        var id = $(this).attr('data-id');
+        $.ajax({
+            url: '/products/product/'+ id, // url where to submit the request
+            type : "GET", // type of action POST || GET
+            success : function(data) {
+                window.location.href = 'http://localhost:3000/products/product/'+id;
+            },
+            error: function() {
+                
+            }
+        })
+    });
+
+    $('.buy_now').on('click', function(e) {
+        var id = $(this).attr('data-id');
+        alert("Product has beed added to Cart");
+        $.ajax({
+            url: '/product/addtocart/'+ id, // url where to submit the request
+            type : "patch", // type of action POST || GET
+            success : function(data) {
+                console.log('now');
+                window.location.href = 'http://localhost:3000/products/product/'+id;
+            },
+            error: function() {
+            }
+        })
+    });
+
+    $('.add_review').on('click', function(e) {
+        alert('dssadasf')
+        var id = $(this).attr('data-id');
+        $.ajax({
+            url: '/product/comment/'+ id, // url where to submit the request
+            type : "patch", // type of action POST || GET
+            success : function(data) {
+            alert('dsfdfsf');
+            window.location.href = 'http://localhost:3000/products/product/'+id;
+            },
+            error: function() {
+                
+            }
+        })
     });
   });
 });
