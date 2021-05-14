@@ -14,20 +14,16 @@
 
                 <p class="text-muted">{{product.description}}</p>
                 <p class="text-muted">Price: {{product.price}}</p>
-                {{!-- <form id ="reviewForm" method="post" action="">
+                <form id ="reviewForm">
                     <label>
                         Enter Your Review
                     </label>
                     <input type="text" name="review"/>
-                    <!-- <input id="search_btn" type="submit" name="submit" /> -->
-                    <button id="add_review" type="submit" data-id="{{product._id}}">Submit</button>
-                </form> --}}
+                    <button class="add_review" type="submit" data-id="{{product._id}}">Submit</button>
+                </form>
                
-                <a class="btn btn-primary add_review" href="" role="button" data-id="{{product._id}}"> Add review<i
-                class=""></i></a>
-                
                 <p>
-                    <a class ="product_like" href="">{{product.noOfLikes}} Likes: <i class="fa fa-thumbs-up"></i></a>
+                    <a class ="product_like" href="" data-id="{{product._id}}">{{product.noOfLikes}} Likes: <i class="fa fa-thumbs-up"></i></a>
                 </p>
                 
                 <a class="btn btn-primary buy_now" href="" role="button" data-id="{{product._id}}"> Buy Now <i

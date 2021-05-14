@@ -123,5 +123,37 @@ $(document).ready(function () {
             }
         })
     });
-  });
+
+    $('.product_like').on('click', function(e) {
+        var id = $(this).attr('data-id');
+        alert("cvcvcc");
+        $.ajax({
+            url: '/product/like/'+ id, // url where to submit the request
+            type : "patch", // type of action POST || GET
+            success : function(data) {
+                alert('now');
+                window.location.href = 'http://localhost:3000/products/product/'+id;
+            },
+            error: function() {
+            }
+        })
+    });
+
+    $('#cart_btn').on('click', function(e) {
+        var id = "609a9ffbe959bc914a4a5655";
+        alert("eyreuty");
+        $.ajax({
+            url: '/product/addtocart/'+ id, // url where to submit the request
+            type : "patch", // type of action POST || GET
+            success : function(data) {
+                alert('noxvcxvw');
+                window.location.href = 'http://localhost:3000/product/addtocart/'+id;
+            },
+            error: function() {
+            }
+        })
+    });
+
+
+  
 });
