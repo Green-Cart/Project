@@ -3,7 +3,7 @@ CS 546 Web Programming Final Project: Green Cart
 Mandatory Steps:
 
 A. Github Link:
-1. Pull the code from the main branch or finalversion  branch from the repository.
+1. Pull the code from the main branch of the repository.
 1. npm install
 3. Seed the database using the command: node seed/seed.js or use npm run seed
 4. run npm start to start the server.
