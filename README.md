@@ -8,7 +8,7 @@ A. Github Link:
 3. Seed the database using the command: node seed/seed.js or use npm run seed
 4. run npm start to start the server.
 5. Click on http://localhost:3000 or copy this Local URL in your browser. You will be redirected to the Home Page of our project: Green Cart.
-6. # SECRET CODE  for creating admin account is CS546
+6. # SECRET CODE  for creating/ Signing up admin account is CS546
 
 B. Green Cart: Home Page (http://localhost:3000/)
 1. On the navigation bar, you will get few links like Green Cart, Login, Sign Up  and Admin Login. 
