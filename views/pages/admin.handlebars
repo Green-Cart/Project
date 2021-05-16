@@ -29,29 +29,53 @@
         <form id="productForm" name="product">
           <div class="modal-body">
             <div class="form-group">
-              <label>Name</label>
-              <input type="text" name="title" class="form-control" />
+              <label for="name">Name</label>
+              <input id="name" type="text" name="title" class="form-control" />
             </div>
             <div class="form-group">
-              <label>Description</label>
-              <textarea name="description" class="form-control"></textarea>
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                class="form-control"
+              ></textarea>
             </div>
             <div class="form-group">
-              <label>Image</label>
-              <input type="text" name="productImage" class="form-control" />
+              <label for="productImage">Image</label>
+              <input
+                id="productImage"
+                type="text"
+                name="productImage"
+                class="form-control"
+              />
             </div>
             <div class="form-group">
-              <label> Stock of the Product</label>
-              <input type="number" name="stock" class="form-control" />
+              <label for="stock"> Stock of the Product</label>
+              <input
+                id="stock"
+                type="number"
+                name="stock"
+                class="form-control"
+              />
             </div>
 
             <div class="form-group">
-              <label>Price</label>
-              <input type="number" name="price" class="form-control" />
+              <label for="price">Price</label>
+              <input
+                id="price"
+                type="number"
+                name="price"
+                class="form-control"
+              />
             </div>
             <div class="form-group">
-              <label>Product Type</label>
-              <input type="text" name="product_type" class="form-control" />
+              <label for="product_type">Product Type</label>
+              <input
+                id="product_type"
+                type="text"
+                name="product_type"
+                class="form-control"
+              />
             </div>
 
             <div id="properties">
@@ -81,10 +105,7 @@
   </div>
 </div>
 <div id="admin_table">
-  <table
-    id="example"
-    class="table table-striped table-bordered"
-  >
+  <table id="example" class="table table-striped table-bordered">
     <thead>
       <tr>
         <th>Name</th>

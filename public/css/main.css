@@ -205,7 +205,8 @@ ul {
   padding: 2%;
 }
 #cart_container {
-  background-color: #dffbaa94;
+  /* background-color: #dffbaa94; */
+  border: 1px solid black;
   height: auto;
   padding-top: 2%;
   margin-top: 2%;
@@ -223,7 +224,8 @@ ul {
 }
 
 .single_prod_container {
-  background-color: #dffbaa94;
+  /* background-color: #dffbaa94; */
+  border: 1px solid black;
   height: auto;
   padding-top: 2%;
   margin-top: 2%;
@@ -247,7 +249,7 @@ ul {
 
 .productPropHeading {
   font-weight: 500;
-  color: red;
+  color: #ee0000;
 }
 
 .bg-success {
@@ -263,7 +265,7 @@ ul {
 #cart_btn {
   margin-left: 5%;
 }
-#cart_pg_row {
+.cart_pg_row {
   border: groove;
   padding: 2%;
   margin-bottom: 5%;
@@ -291,4 +293,8 @@ ul {
 
 .user_ptag {
   font-size: 20px;
+}
+
+.cart_dynamic_content {
+  color: #000;
 }

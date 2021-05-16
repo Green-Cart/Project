@@ -94,42 +94,41 @@ router.get("/signup", async (req, res) => {
 ////////////////////////////////
 
 router.post("/signup", async (req, res) => {
-  if (req.session.admin) {
-    res.redirect("/admin");
-  } else {
-    firstName = xss(req.body.adminFirstName);
-    lastName = xss(req.body.adminLastName);
-    adminId = xss(req.body.adminId);
-    adminPassword = xss(req.body.adminPassword);
-    secretPasscode = xss(req.body.secretPasscode);
-    errors = [];
-    if (!errorCheck.stringCheck(firstName)) errors.push("Invalid First Name");
-    if (!errorCheck.stringCheck(lastName)) errors.push("Invalid Last Name");
-    if (!errorCheck.emailValidate(adminId)) errors.push("Invalid Admin Id");
-    if (!errorCheck.validPassword(adminPassword))
-      errors.push(
-        "Invalid Admin Password. there should be atleast 8 characters"
-      );
+  // if (req.session.admin) {
+  //   res.redirect("/admin");
+  // } else {
+  //   firstName = xss(req.body.adminFirstName);
+  //   lastName = xss(req.body.adminLastName);
+  //   adminId = xss(req.body.adminId);
+  //   adminPassword = xss(req.body.adminSignUpPassword);
+  //   secretPasscode = xss(req.body.secretPasscode);
+  //   errors = [];
+  //   if (!errorCheck.stringCheck(firstName)) errors.push("Invalid First Name");
+  //   if (!errorCheck.stringCheck(lastName)) errors.push("Invalid Last Name");
+  //   if (!errorCheck.emailValidate(adminId)) errors.push("Invalid Admin Id");
+  //   if (!errorCheck.validPassword(adminPassword))
+  //     errors.push(
+  //       "Invalid Admin Password. there should be atleast 8 characters"
+  //     );
 
-    if (!errorCheck.stringCheck(secretPasscode))
-      errors.push("Invalid Passcode");
-    if (!(secretPasscode == "CS546")) errors.push("Invalid Passcode");
-    if (errors.length > 0) {
-      return res.render("pages/adminError", {
-        title: "error page",
-        errors: errors,
-      });
-    }
-  }
+  //   if (!errorCheck.stringCheck(secretPasscode))
+  //     errors.push("Invalid Passcode");
+  //   if (!(secretPasscode == "CS546")) errors.push("Invalid Passcode");
+  //   if (errors.length > 0) {
+  //     return res.render("pages/adminError", {
+  //       title: "error page",
+  //       errors: errors,
+  //     });
+  //   }
+  // }
   try {
     if (req.session.admin) {
       return res.redirect("/admin");
     } else {
-      adminInfo = xss(req.body);
       firstName = xss(req.body.adminFirstName);
       lastName = xss(req.body.adminLastName);
       adminId = xss(req.body.adminId);
-      adminPassword = xss(req.body.adminPassword);
+      adminPassword = xss(req.body.adminSignUpPassword);
       secretPasscode = xss(req.body.secretPasscode);
       errors = [];
       if (!errorCheck.stringCheck(firstName)) errors.push("Invalid First Name");

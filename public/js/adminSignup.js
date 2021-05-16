@@ -12,7 +12,7 @@
   let firstName = $("#adminFirstName");
   let lastName = $("#adminLastName");
   let emailId = $("#adminId");
-  let password = $("#adminPassword");
+  let password = $("#adminSignUpPassword");
   let code = $("#secretPasscode");
   let adminSubmit = $("#admin-submit");
 

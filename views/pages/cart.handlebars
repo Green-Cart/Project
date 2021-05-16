@@ -5,27 +5,33 @@
 
     {{#if hasProduct}}
       <div>
-        <h1>Cart Page</h1>
+        <h1 class="text-primary">Cart Page</h1>
         <p class="cart_fields">Customer Delivery Details.. </p>
         <p class="single_h3"><label class="cart_fields">Name:</label>
           {{user.firstName}}</p>
-        <p><label class="cart_fields">Address:</label>
-          {{user.address.Line1}},{{user.address.Line1}}</p>
-        <p><label class="cart_fields">Contact :</label>{{user.mobile}}</p>
-        <label class="cart_fields">City :</label>{{user.address.City}}
-        <label class="cart_fields">State :</label>
-        {{user.address.State}}
-        <label class="cart_fields">Zipcode :</label>
-        {{user.address.ZipCode}}
+        <p class="cart_dynamic_content"><label
+            class="cart_fields"
+          >Address:</label>
+          {{user.address.Line1}},{{user.address.Line2}}</p>
+        <p class="cart_dynamic_content"><label class="cart_fields">Contact :</label>{{user.mobile}}</p>
+        <label class="cart_fields">City : {{user.address.City}},</label>
+        <label class="cart_fields">State : {{user.address.State}},</label>
+
+        <label class="cart_fields">Zipcode : {{user.address.ZipCode}}</label>
       </div>
       {{#each productsList}}
-        <div class="row" id="cart_pg_row">
+        <div class="row cart_pg_row">
           <div class="col-md-6">
             <h2 class="single_h3">{{this.title}}</h2>
 
-            <p><label class="cart_fields">Description</label>
+            <p class="cart_dynamic_content"><label
+                class="cart_fields"
+              >Description</label>
               {{this.description}}</p>
-            <p><label class="cart_fields">Price</label> ${{this.price}}</p>
+            <p class="cart_dynamic_content"><label
+                class="cart_fields"
+              >Price</label>
+              ${{this.price}}</p>
           </div>
           <div class="col-md-6">
             <img
@@ -38,7 +44,7 @@
         </div>
       {{/each}}
 
-      <p>Total Price: {{total}}</p>
+      <p class="cart_dynamic_content">Total Price: {{total}}</p>
 
       <div class="confirm_purchase">
         <button type="button" class="btn btn-primary" id="confirmation">Confirm
